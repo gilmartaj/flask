@@ -11,6 +11,7 @@ def index():
 @app.route("/asaas", methods=['POST'])
 def wh():
     print(request.json)
+    print(request)
     return jsonify(success=True)
 
 
