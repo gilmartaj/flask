@@ -10,8 +10,9 @@ def index():
 
 @app.route("/asaas", methods=['POST'])
 def wh():
+    print(request.headers)
     print(request.json)
-    print(request)
+    #print(request)
     return jsonify(success=True)
 
 
