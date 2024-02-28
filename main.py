@@ -21,13 +21,13 @@ def index():
     except:
       pass
     try:
-      code = request.args.get("state", state)
+      state = request.args.get("state", state)
     except:
       pass
     #return jsonify(success=True)
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
     bot.send_message("556068392", "code: " + code + "\nstate: " + state)
-    return jsonify({"code": code})
+    return jsonify({"code": code, "state": state})
 
 @app.route("/asaas", methods=['POST'])
 def wh():
