@@ -16,7 +16,7 @@ def index():
     print(request.json)
     #print(request)
     try:
-      code = request.args.get("code", "nada")
+      code = request.args.get("code", code)
     except:
       pass
     #return jsonify(success=True)
