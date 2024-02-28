@@ -3,10 +3,20 @@ import os
 
 app = Flask(__name__)
   
+code = "nada"
 
 @app.route('/')
 def index():
-    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    print(request.headers)
+    print(request.json)
+    #print(request)
+    try:
+      code = request.args.get("code", "nada")
+    except:
+      pass
+    #return jsonify(success=True)
+    #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    return jsonify({"code": code})
 
 @app.route("/asaas", methods=['POST'])
 def wh():
