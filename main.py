@@ -20,7 +20,7 @@ def index():
       code = request.args.get("code", code)
     except:
       pass
-     try:
+    try:
       code = request.args.get("state", state)
     except:
       pass
