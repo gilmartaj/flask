@@ -1,12 +1,17 @@
 from flask import Flask, jsonify, request
 import os
+import telebot
+
+bot_aux = os.getenv("BOT_AUX_TOKEN")
+bot = telebot.TeleBot(bot_aux)
 
 app = Flask(__name__)
-  
+
 code = "nada"
 
 @app.route('/')
 def index():
+    global code
     print(request.headers)
     print(request.json)
     #print(request)
@@ -16,6 +21,7 @@ def index():
       pass
     #return jsonify(success=True)
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    bot.send_message("556068392", code)
     return jsonify({"code": code})
 
 @app.route("/asaas", methods=['POST'])
