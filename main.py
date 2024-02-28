@@ -13,8 +13,9 @@ state = "nenhum"
 @app.route('/')
 def index():
     global code
-    print(request.headers)
-    print(request.json)
+    global state
+    #print(request.headers)
+    #print(request.json)
     #print(request)
     try:
       code = request.args.get("code", code)
