@@ -8,6 +8,7 @@ bot = telebot.TeleBot(bot_aux)
 app = Flask(__name__)
 
 code = "nada"
+state = "nenhum"
 
 @app.route('/')
 def index():
@@ -19,9 +20,13 @@ def index():
       code = request.args.get("code", code)
     except:
       pass
+     try:
+      code = request.args.get("state", state)
+    except:
+      pass
     #return jsonify(success=True)
     #return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
-    bot.send_message("556068392", code)
+    bot.send_message("556068392", "code: " + code + "\nstate: " + state)
     return jsonify({"code": code})
 
 @app.route("/asaas", methods=['POST'])
