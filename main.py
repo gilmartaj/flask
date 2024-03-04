@@ -42,6 +42,8 @@ headers = []
 
 @app.route("/ml", methods=['POST'])
 def ml():
+    global notificacoes
+    global headers
     print(request.headers)
     print(request.json)
     notificacoes.append(request.json)
