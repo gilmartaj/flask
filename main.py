@@ -55,7 +55,7 @@ def ml():
 def vn():
     global notificacoes
     global headers
-    return jsonify(notificacoes={notificacoes=notificacoes}, headers=str(headers))
+    return jsonify(notificacoes=notificacoes, headers=str(headers))
 
 #if __name__ == '__main__':
 #    app.run(debug=True, port=os.getenv("PORT", default=5000))
