@@ -40,7 +40,7 @@ def wh():
 notificacoes = []
 headers = []
 
-@app.route("/ml", methods=['POST'])
+@app.route("/", methods=['POST'])
 def ml():
     global notificacoes
     global headers
