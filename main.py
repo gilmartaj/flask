@@ -44,17 +44,15 @@ headers = []
 def ml():
     print(request.headers)
     print(request.json)
+    notificacoes.append(request.json)
+    headers.append(request.headers)
     #print(request)
     return jsonify(success=True)
     
-@app.route("/vn", methods=['POST'])
+@app.route("/vn", methods=['GET'])
 def vn():
     global notificacoes
     global headers
-    print(request.headers)
-    print(request.json)
-    notificacoes.append(request.json)
-    headers.append(request.headers)
     return jsonify(notificacoes=notificacoes, headers=headers)
 
 #if __name__ == '__main__':
