@@ -37,6 +37,25 @@ def wh():
     #print(request)
     return jsonify(success=True)
 
+notificacoes = []
+headers = []
+
+@app.route("/ml", methods=['POST'])
+def ml():
+    print(request.headers)
+    print(request.json)
+    #print(request)
+    return jsonify(success=True)
+    
+@app.route("/vn", methods=['POST'])
+def vn():
+    global notificacoes
+    global headers
+    print(request.headers)
+    print(request.json)
+    notificacoes.append(request.json)
+    headers.append(request.headers)
+    return jsonify(notificacoes=notificacoes, headers=headers)
 
 #if __name__ == '__main__':
 #    app.run(debug=True, port=os.getenv("PORT", default=5000))
