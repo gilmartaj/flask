@@ -50,6 +50,17 @@ def ml():
     headers.append(request.headers)
     #print(request)
     return jsonify(success=True)
+
+@app.route("/not", methods=['POST'])
+def ml():
+    global notificacoes
+    global headers
+    print(request.headers)
+    print(request.json)
+    notificacoes.append(request.json)
+    headers.append(request.headers)
+    #print(request)
+    return jsonify(success=True)
     
 @app.route("/vn", methods=['GET'])
 def vn():
