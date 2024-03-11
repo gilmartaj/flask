@@ -51,8 +51,8 @@ def ml():
     #print(request)
     return jsonify(success=True)
 
-@app.route("/not", methods=['POST'])
-def not():
+@app.route("/nt", methods=['POST'])
+def nt():
     global notificacoes
     global headers
     print(request.headers)
