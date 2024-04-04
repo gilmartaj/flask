@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import os
 import telebot
+import requests
 
 bot_aux = os.getenv("BOT_AUX_TOKEN")
 bot = telebot.TeleBot(bot_aux)
@@ -49,7 +50,11 @@ def ml():
     notificacoes.append(request.json)
     headers.append(request.headers)
     #print(request)
+    repassar(request.json)
     return jsonify(success=True)
+
+def repassar(dados):
+    requests.post("http://200.195.166.130:8080/ReceptorWebhooks/mercadolivre/webhooks/receiver", json=dados)
 
 @app.route("/nt", methods=['POST'])
 def nt():
@@ -60,6 +65,7 @@ def nt():
     notificacoes.append(request.json)
     headers.append(request.headers)
     #print(request)
+    repassar(request.json)
     return jsonify(success=True)
     
 @app.route("/vn", methods=['GET'])
